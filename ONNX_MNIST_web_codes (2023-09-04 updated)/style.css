@@ -1,0 +1,157 @@
+/* 모든 영역에 대하여 box-sizing을 inherit으로 설정 */
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/* <html> 태그에 대한 디자인 정보를 아래처럼 명시 */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+
+/* <body> 태그에 대한 디자인 정보를 아래처럼 명시 */
+/*
+  * align-items: 가운데 정렬
+  * 웹 문서의 배경을 흰회색으로 설정
+  * color: 글자 색상(검은색)
+  * font-family: 글꼴(폰트)
+*/
+body {
+  align-items: center;
+  background: #fafafa;
+  color: #212121;
+  display: flex;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  justify-content: center;
+  margin: 0;
+}
+
+/*
+  * 클래스(class)는 한 문서에 여러 번 나올 수 있는 스타일 정보
+  * 온점(.)으로 시작
+  * elevation이라는 클래스를 적용하면, 박스 형태의 모양이 만들어지고 그림자가 적용
+*/
+.elevation {
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+/*
+  * card는 이 웹 사이트의 전체 가장 큰 네모이고
+  * 내부에 들어있는 캔버스(canvas)와 거리를 유지하기 위해 padding 값을 16만큼
+  * board-radius: 네모인데 테두리는 약간 둥그스름하게 만들기
+*/
+.card {
+  background: #fff;
+  border-radius: 4px;
+  padding: 16px;
+}
+
+/*
+  * 캔버스(canvas)는 실제로 그림을 그리는 공간에 대한 디자인 정보
+  * 크기를 140 X 140으로 설정
+*/
+.canvas {
+  border-radius: 4px;
+  height: 140px;
+  width: 140px;
+}
+
+/*
+  * 버튼(button) 디자인 클래스
+  * 그림자 박스(box-shadow) 형태를 가지고, 테두리는 둥그스름(border-radius)
+  * 내부적으로 "CLEAR"라는 문자열이 들어가므로, 폰트 관련 디자인도 명시
+  * 폰트 크기는 14px, 텍스트 정렬은 가운데 정렬
+*/
+.button {
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12), inset 0 0 0 rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1.25px;
+  line-height: 36px;
+  margin: 16px 0;
+  text-align: center;
+  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+  width: 140px;
+}
+
+/*
+  * 콜론(:)은 마우스 이벤트 처리
+  * 버튼(button) 디자인 클래스 정의
+  * hover는 마우스를 올려놓았을 때 색상 변경
+  * active는 누르는 도중일 때 색상 변경
+*/
+.button:hover {
+  background: #f5f5f5;
+}
+
+.button:active {
+  box-shadow: 0 0 rgba(0, 0, 0, 0.2), 0 0 rgba(0, 0, 0, 0.14),
+    0 0 rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.05s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/*
+  * predictions: 전체 prediction 결과 막대를 담고 있는 통
+*/
+.predictions {
+  display: flex;
+}
+
+/*
+  * prediction-col: 하나의 열(column) 막대
+*/
+.prediction-col {
+  padding: 0 2px;
+}
+
+/*
+  * javascript는 CSS랑 연동이 되므로, 결과에 따라서 class를 교체할 수 있다.
+  * 기본적으로 열(column)의 배경색은 하얀색
+*/
+.prediction-bar-container {
+  background: #f5f5f5;
+  height: 140px;
+  width: 10px;
+  position: relative;
+}
+
+/*
+  * 예측 결과 중에서 가장 높은(top-prediction)을 제외하면 모두 아래 디자인을 기본적으로
+*/
+.prediction-bar {
+  background: #e0e0e0;
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.prediction-number {
+  color: #bdbdbd;
+  font-size: 14px;
+  text-align: center;
+}
+
+/*
+  * javascript를 이용해서 "현재 값이 가장 큰" 클래스(class)에 적용
+  * top-prediction이라는 클래스를 적용해준다.
+    * 배경 색상: predicction-bar
+    * 아래에 있는 숫자: prediction-number
+*/
+.top-prediction .prediction-bar {
+  background: #00f0ff;
+}
+
+.top-prediction .prediction-number {
+  color: #00f0ff;
+  font-weight: bold;
+}
