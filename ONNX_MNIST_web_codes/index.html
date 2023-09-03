@@ -1,0 +1,116 @@
+<html>
+  <!--
+    * 머리(head) 부분: 웹 문서에 대한 메타 정보
+    * 웹 문서 전반에 대한 디자인(.css) 파일의 경로를 명시
+  -->
+  <head>
+    <!-- 현재 문서의 UI/UX 디자인에 대한 정보는 style.css에서 불러온다. -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <!--
+    * 웹 문서의 몸통(body) 부분: 웹 문서의 실질적인 내용을 구성하는 부분
+    * 실제로 사용자가 보게되는 화면에 대한 정보
+  -->
+  <body>
+    <div class="card elevation">
+    
+      <!--
+        * <canvas> 태그는 HTML5가 기본적으로 제공하는 태그 중 하나
+        * 우리가 설정한 크기에 맞게 네모가 만들어지고, 그림을 그리도록 하는 요소
+      -->
+      <canvas
+        class="canvas elevation"
+        id="canvas"
+        width="280"
+        height="280"
+      ></canvas>
+
+      <!--
+        * 버튼(button) 태그
+      -->
+      <div class="button" id="clear-button">CLEAR</div>
+
+      <!--
+        * 전체 막대를 담는 공간(디자인)
+      -->
+      <div class="predictions">
+        <!--
+          * 여기서부터 총 10번 반복(각 클래스 숫자에 따른 예측 결과 막대)
+        -->
+        <div class="prediction-col" id="prediction-0">
+          <div class="prediction-bar-container">
+            <div class="prediction-bar"></div>
+          </div>
+          <div class="prediction-number">0</div>
+        </div>
+
+        <div class="prediction-col" id="prediction-1">
+          <div class="prediction-bar-container">
+            <div class="prediction-bar"></div>
+          </div>
+          <div class="prediction-number">1</div>
+        </div>
+
+        <div class="prediction-col" id="prediction-2">
+          <div class="prediction-bar-container">
+            <div class="prediction-bar"></div>
+          </div>
+          <div class="prediction-number">2</div>
+        </div>
+
+        <div class="prediction-col" id="prediction-3">
+          <div class="prediction-bar-container">
+            <div class="prediction-bar"></div>
+          </div>
+          <div class="prediction-number">3</div>
+        </div>
+
+        <div class="prediction-col" id="prediction-4">
+          <div class="prediction-bar-container">
+            <div class="prediction-bar"></div>
+          </div>
+          <div class="prediction-number">4</div>
+        </div>
+
+        <div class="prediction-col" id="prediction-5">
+          <div class="prediction-bar-container">
+            <div class="prediction-bar"></div>
+          </div>
+          <div class="prediction-number">5</div>
+        </div>
+
+        <div class="prediction-col" id="prediction-6">
+          <div class="prediction-bar-container">
+            <div class="prediction-bar"></div>
+          </div>
+          <div class="prediction-number">6</div>
+        </div>
+
+        <div class="prediction-col" id="prediction-7">
+          <div class="prediction-bar-container">
+            <div class="prediction-bar"></div>
+          </div>
+          <div class="prediction-number">7</div>
+        </div>
+
+        <div class="prediction-col" id="prediction-8">
+          <div class="prediction-bar-container">
+            <div class="prediction-bar"></div>
+          </div>
+          <div class="prediction-number">8</div>
+        </div>
+
+        <div class="prediction-col" id="prediction-9">
+          <div class="prediction-bar-container">
+            <div class="prediction-bar"></div>
+          </div>
+          <div class="prediction-number">9</div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/onnxjs/dist/onnx.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
